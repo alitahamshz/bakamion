@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Peyda', Tahoma, sans-serif;
+  --color-brand: #05a66d;
+  --color-brand-hover: #18b87e;
+  --color-brand-ring: #d9f5e9;
+  --color-danger: #b42318;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('/font/Standard/WebFonts/fonts/woff2/PeydaWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('/font/Standard/WebFonts/fonts/woff2/PeydaWeb-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('/font/Standard/WebFonts/fonts/woff2/PeydaWeb-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('/font/Standard/WebFonts/fonts/woff2/PeydaWeb-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  body {
+    @apply min-w-80 bg-[#f7f8fa] text-slate-800 antialiased;
+  }
+}

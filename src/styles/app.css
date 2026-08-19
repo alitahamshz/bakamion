@@ -1,0 +1,247 @@
+/* Table layout, dialog chrome/animations, and mobile overrides.
+   Utility and component visuals live as Tailwind class names. */
+
+.records-wrap {
+  overflow: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: white;
+}
+
+.records-table {
+  width: 100%;
+  min-width: 900px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.records-table th,
+.records-table td {
+  padding: 13px 14px;
+  text-align: right;
+  border-bottom: 1px solid #edf0f3;
+  font-size: 13px;
+  vertical-align: middle;
+}
+
+.records-table th {
+  color: #64748b;
+  font-weight: 500;
+  background: #fafbfc;
+  white-space: nowrap;
+}
+
+.records-table th:nth-child(1) {
+  width: 75px;
+}
+
+.records-table th:nth-child(2) {
+  width: 102px;
+}
+
+.records-table th:nth-child(3) {
+  width: 150px;
+}
+
+.records-table th:nth-child(5) {
+  width: 130px;
+}
+
+.records-table th:nth-child(6) {
+  width: 115px;
+}
+
+.records-table th:nth-child(7) {
+  width: 90px;
+}
+
+.notice {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  padding: 11px 15px;
+  border-radius: 7px;
+  background: #14532d;
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 8px 20px #0002;
+}
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #0f172a66;
+  animation: dialog-backdrop-in 220ms ease-out;
+}
+
+.dialog-backdrop[data-state='closed'] {
+  animation: dialog-backdrop-out 180ms ease-in forwards;
+}
+
+.dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 21;
+  width: min(580px, calc(100% - 32px));
+  max-height: 90vh;
+  overflow: auto;
+  padding: 22px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 20px 50px #0004;
+  transform: translate(-50%, -50%);
+  animation: dialog-content-in 260ms ease-out;
+}
+
+.dialog[data-state='closed'] {
+  animation: dialog-content-out 180ms ease-in forwards;
+}
+
+@keyframes dialog-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes dialog-backdrop-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes dialog-content-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes dialog-content-out {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.96);
+  }
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    padding: 28px 16px;
+  }
+  .page-header {
+    align-items: start;
+    flex-direction: column;
+  }
+  .filters {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .field,
+  .field--search {
+    flex-basis: auto;
+  }
+  .clear-button {
+    align-self: flex-start;
+  }
+  .records-wrap {
+    overflow: visible;
+    border: 0;
+    background: transparent;
+  }
+  .records-table,
+  .records-table tbody,
+  .records-table tr,
+  .records-table td {
+    display: block;
+    min-width: 0;
+    width: 100%;
+  }
+  .records-table thead {
+    display: none;
+  }
+  .records-table tr {
+    position: relative;
+    margin-bottom: 12px;
+    padding: 12px 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    background: #fff;
+  }
+  .records-table td {
+    padding: 5px 0;
+    border: 0;
+  }
+  .records-table td:nth-child(1) {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    width: auto;
+  }
+  .records-table td:nth-child(2) {
+    padding-left: 55px;
+  }
+  .records-table td:nth-child(3) {
+    font-size: 15px;
+  }
+  .records-table td:nth-child(5),
+  .records-table td:nth-child(6) {
+    display: inline-block;
+    width: auto;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+  .records-table td:nth-child(7) {
+    position: absolute;
+    left: 12px;
+    bottom: 9px;
+    width: auto;
+  }
+  .row-actions {
+    display: flex;
+    gap: 2px;
+    align-items: center;
+  }
+  .pagination {
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+  }
+  .page-size,
+  .page-actions {
+    gap: 5px;
+  }
+  .pagination .button {
+    min-width: 34px;
+    padding: 0 8px;
+  }
+  .notice {
+    right: 16px;
+    left: 16px;
+    text-align: center;
+  }
+  .dialog {
+    padding: 18px;
+  }
+  .dialog footer {
+    flex-wrap: wrap;
+  }
+  .dialog footer .button {
+    flex: 1;
+  }
+}
