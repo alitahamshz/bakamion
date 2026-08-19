@@ -93,7 +93,7 @@ export function RecordsPage() {
             <section className="grid min-h-[310px] place-content-center justify-items-center gap-3 text-center text-slate-500">
               <Inbox size={34} />
               <h2 className="text-lg text-slate-700">
-                {records.length ? 'رکوردی مطابق جستجوی شما پیدا نشد' : 'هنوز رکوردی وجود ندارد'}
+                {records.length ? 'رکوردی مطابق فیلترهای انتخاب شده پیدا نشد' : 'هنوز رکوردی وجود ندارد'}
               </h2>
               <p>{records.length ? '' : 'اولین رکورد راایجاد کنید.'}</p>
               {Boolean(query || status) && (
